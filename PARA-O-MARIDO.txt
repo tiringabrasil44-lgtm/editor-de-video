@@ -1,26 +1,14 @@
-PARA O MARIDO — baixar e atualizar
-==================================
+PARA O MARIDO — programa pronto (.exe)
+======================================
 
-Link:
-https://github.com/tiringabrasil44-lgtm/editor-de-video
+Baixe o programa (ZIP):
+https://github.com/tiringabrasil44-lgtm/editor-de-video/releases/latest
 
+1. Clique em EditorDeVideo-Windows.zip
+2. Extraia a pasta
+3. Abra EditorDeVideo.exe
+4. Na 1ª vez espera baixar o FFmpeg sozinho (internet)
 
-PRIMEIRA VEZ (escolha 1 jeito)
-------------------------------
-Jeito mais fácil:
-1. Abra o link acima no navegador
-2. Clique no botão verde Code → Download ZIP
-3. Extraia a pasta
-4. Dentro dela, dê dois cliques em: Atualizar.bat
-   (ele termina de preparar tudo sozinho)
-5. Depois abra: Abrir Editor.bat
+Para atualizar depois: Atualizar.bat
 
-Precisa ter Python instalado UMA vez:
-https://www.python.org/downloads/
-Marque: Add python.exe to PATH
-
-
-QUANDO ELA ATUALIZAR DE NOVO
-----------------------------
-Só dois cliques em: Atualizar.bat
-Nao precisa digitar git clone nem nada.
+Nao precisa Python, Git, winget nem Path.

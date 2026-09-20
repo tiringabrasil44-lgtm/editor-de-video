@@ -20,3 +20,8 @@ Desktop.ini
 
 # FFmpeg baixado automaticamente na pasta do app
 ffmpeg/
+
+# Build do .exe
+build/
+dist/
+*.spec

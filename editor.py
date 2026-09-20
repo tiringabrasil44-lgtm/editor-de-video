@@ -29,16 +29,15 @@ except ImportError:
 
 
 def find_ffmpeg() -> tuple[str | None, str | None, str | None]:
-    # 1) Pasta local do app (baixada pelo Atualizar / Abrir Editor)
-    local_bin = Path(__file__).resolve().parent / "ffmpeg" / "bin"
-    local_ffmpeg = local_bin / "ffmpeg.exe"
-    local_ffprobe = local_bin / "ffprobe.exe"
-    local_ffplay = local_bin / "ffplay.exe"
-    if local_ffmpeg.is_file() and local_ffprobe.is_file():
+    from setup_deps import local_ffmpeg_paths, local_ffmpeg_ok
+
+    # 1) Pasta local do app / ao lado do .exe
+    if local_ffmpeg_ok():
+        ffmpeg, ffprobe, ffplay = local_ffmpeg_paths()
         return (
-            str(local_ffmpeg),
-            str(local_ffprobe),
-            str(local_ffplay) if local_ffplay.is_file() else None,
+            str(ffmpeg),
+            str(ffprobe),
+            str(ffplay) if ffplay.is_file() else None,
         )
 
     # 2) PATH do sistema
@@ -67,7 +66,12 @@ def find_ffmpeg() -> tuple[str | None, str | None, str | None]:
     return None, None, None
 
 
-FFMPEG, FFPROBE, FFPLAY = find_ffmpeg()
+FFMPEG, FFPROBE, FFPLAY = None, None, None
+
+
+def refresh_ffmpeg() -> None:
+    global FFMPEG, FFPROBE, FFPLAY
+    FFMPEG, FFPROBE, FFPLAY = find_ffmpeg()
 
 
 def probe_duration(path: str) -> float:
@@ -345,11 +349,10 @@ class EditorApp(BaseTk):
         if not FFMPEG or not FFPROBE:
             messagebox.showerror(
                 "FFmpeg não encontrado",
-                "Feche o editor e abra de novo com Abrir Editor.bat\n"
-                "(ou rode Atualizar.bat).\n\n"
-                "Ele baixa o FFmpeg sozinho — precisa de internet.",
+                "Na primeira abertura o programa baixa o FFmpeg sozinho.\n"
+                "Confira a internet, feche e abra de novo.",
             )
-            self.status.config(text="Rode Abrir Editor.bat / Atualizar.bat com internet.")
+            self.status.config(text="Sem internet na 1ª abertura? Abra de novo com rede.")
         if not FFPLAY:
             self.audio_btn.config(state="disabled")
 
@@ -755,6 +758,34 @@ class EditorApp(BaseTk):
 
 
 def main() -> None:
+    # Janela rápida enquanto prepara FFmpeg (só na 1ª vez demora)
+    boot = tk.Tk()
+    boot.title("Editor de Vídeo")
+    boot.geometry("420x120")
+    boot.resizable(False, False)
+    msg = tk.Label(
+        boot,
+        text="Abrindo o Editor de Vídeo…",
+        font=("Segoe UI", 11),
+        pady=20,
+    )
+    msg.pack()
+    boot.update()
+
+    def log(text: str) -> None:
+        msg.config(text=text)
+        boot.update()
+
+    try:
+        from setup_deps import ensure_ffmpeg
+
+        ensure_ffmpeg(log=log)
+    except Exception as exc:
+        log(f"Aviso: {exc}")
+
+    refresh_ffmpeg()
+    boot.destroy()
+
     app = EditorApp()
     app.mainloop()
 
