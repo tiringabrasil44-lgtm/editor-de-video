@@ -1,0 +1,35 @@
+Editor de Vídeo — simples
+==========================
+
+O que faz
+- Abrir qualquer formato de vídeo (o que o FFmpeg conseguir ler) — inclusive arrastando
+- Ver a prévia no programa (Play / Pause / Parar)
+- Cortar um trecho (início e fim)
+- Mudar a velocidade (aparece no vídeo; prévia muda na hora)
+- Prévia com áudio
+- Salvar o resultado em MP4
+
+GitHub (para o marido baixar / atualizar)
+- Link do projeto: (será preenchido após o primeiro push)
+- Primeira vez no notebook: veja o arquivo PARA-O-MARIDO.txt
+- Depois de qualquer atualização: clique duas vezes em Atualizar.bat
+
+Como usar no seu PC
+1. Dê dois cliques em: Abrir Editor.bat
+2. Arraste o vídeo para a caixa azul OU clique em "Escolher vídeo…"
+3. Ajuste início / fim e a velocidade
+4. Clique em ▶ Play para ver a prévia no programa
+   (ou "Prévia com áudio" para ouvir também)
+5. Clique em "Salvar vídeo editado…"
+
+Para enviar pelo ZIP (alternativa)
+- Compacte a pasta EditorDeVideo e envie
+- No outro PC: extrair e abrir Abrir Editor.bat
+
+Requisitos no computador
+- Windows
+- Python 3 (https://www.python.org/downloads/ — marque "Add Python to PATH")
+- Git (https://git-scm.com/download/win) — só precisa se for usar Atualizar.bat
+- FFmpeg (no PowerShell: winget install Gyan.FFmpeg)
+
+Se o editor abrir e avisar que falta FFmpeg, instale com o comando acima e abra de novo.
