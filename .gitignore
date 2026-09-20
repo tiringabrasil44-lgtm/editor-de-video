@@ -17,3 +17,6 @@ Desktop.ini
 # Temp / exports
 *.tmp
 *_editado.mp4
+
+# FFmpeg baixado automaticamente na pasta do app
+ffmpeg/

@@ -29,6 +29,19 @@ except ImportError:
 
 
 def find_ffmpeg() -> tuple[str | None, str | None, str | None]:
+    # 1) Pasta local do app (baixada pelo Atualizar / Abrir Editor)
+    local_bin = Path(__file__).resolve().parent / "ffmpeg" / "bin"
+    local_ffmpeg = local_bin / "ffmpeg.exe"
+    local_ffprobe = local_bin / "ffprobe.exe"
+    local_ffplay = local_bin / "ffplay.exe"
+    if local_ffmpeg.is_file() and local_ffprobe.is_file():
+        return (
+            str(local_ffmpeg),
+            str(local_ffprobe),
+            str(local_ffplay) if local_ffplay.is_file() else None,
+        )
+
+    # 2) PATH do sistema
     ffmpeg = shutil.which("ffmpeg")
     ffprobe = shutil.which("ffprobe")
     ffplay = shutil.which("ffplay")
@@ -39,6 +52,7 @@ def find_ffmpeg() -> tuple[str | None, str | None, str | None]:
                 ffplay = str(candidate)
         return ffmpeg, ffprobe, ffplay
 
+    # 3) Instalação via winget
     winget_roots = [
         Path(os.environ.get("LOCALAPPDATA", "")) / "Microsoft" / "WinGet" / "Packages",
     ]
@@ -331,12 +345,11 @@ class EditorApp(BaseTk):
         if not FFMPEG or not FFPROBE:
             messagebox.showerror(
                 "FFmpeg não encontrado",
-                "Este editor precisa do FFmpeg instalado.\n\n"
-                "No Windows, abra o PowerShell e rode:\n"
-                "winget install Gyan.FFmpeg\n\n"
-                "Depois feche e abra o editor de novo.",
+                "Feche o editor e abra de novo com Abrir Editor.bat\n"
+                "(ou rode Atualizar.bat).\n\n"
+                "Ele baixa o FFmpeg sozinho — precisa de internet.",
             )
-            self.status.config(text="Instale o FFmpeg para continuar.")
+            self.status.config(text="Rode Abrir Editor.bat / Atualizar.bat com internet.")
         if not FFPLAY:
             self.audio_btn.config(state="disabled")
 
