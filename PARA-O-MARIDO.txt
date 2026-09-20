@@ -1,35 +1,26 @@
-PARA O MARIDO — baixar e atualizar o Editor de Vídeo
-====================================================
+PARA O MARIDO — baixar e atualizar
+==================================
 
-Link do GitHub:
+Link:
 https://github.com/tiringabrasil44-lgtm/editor-de-video
 
 
-1) Na PRIMEIRA VEZ no notebook
------------------------------
-Instale SÓ o Python (uma vez):
+PRIMEIRA VEZ (escolha 1 jeito)
+------------------------------
+Jeito mais fácil:
+1. Abra o link acima no navegador
+2. Clique no botão verde Code → Download ZIP
+3. Extraia a pasta
+4. Dentro dela, dê dois cliques em: Atualizar.bat
+   (ele termina de preparar tudo sozinho)
+5. Depois abra: Abrir Editor.bat
+
+Precisa ter Python instalado UMA vez:
 https://www.python.org/downloads/
-→ marque a caixinha "Add python.exe to PATH"
-→ Install Now
-
-(Opcional, só se for usar Atualizar.bat)
-Git: https://git-scm.com/download/win
-
-Depois no PowerShell:
-
-  git clone https://github.com/tiringabrasil44-lgtm/editor-de-video.git
-  cd editor-de-video
-
-Abra: Abrir Editor.bat
-Na primeira abertura ele BAIXA O FFMPEG SOZINHO.
-Nao precisa Path, nem extrair zip na mao.
+Marque: Add python.exe to PATH
 
 
-2) Quando a esposa ATUALIZAR
+QUANDO ELA ATUALIZAR DE NOVO
 ----------------------------
-Dois cliques em: Atualizar.bat
-Ele puxa a novidade do GitHub e instala o que faltar.
-Depois abra: Abrir Editor.bat
-
-
-Nao precisa instalar FFmpeg manualmente.
+Só dois cliques em: Atualizar.bat
+Nao precisa digitar git clone nem nada.
