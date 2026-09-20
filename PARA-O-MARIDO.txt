@@ -1,6 +1,10 @@
 PARA O MARIDO — baixar e atualizar o Editor de Vídeo
 ====================================================
 
+Link do GitHub:
+https://github.com/tiringabrasil44-lgtm/editor-de-video
+
+
 1) Na PRIMEIRA VEZ no notebook
 -----------------------------
 Instale (se ainda não tiver):
@@ -8,28 +12,24 @@ Instale (se ainda não tiver):
 - Python: https://www.python.org/downloads/  (marque "Add Python to PATH")
 - FFmpeg: abra o PowerShell e rode:  winget install Gyan.FFmpeg
 
-Depois abra o PowerShell ou o Prompt de Comando e rode
-(cole o comando que está no final deste arquivo, com o link certo):
+Abra o PowerShell e rode estes 3 comandos (um por vez):
 
-  git clone URL_DO_GITHUB
-  cd EditorDeVideo
-  Abrir Editor.bat
+  git clone https://github.com/tiringabrasil44-lgtm/editor-de-video.git
+  cd editor-de-video
+  .\Abrir` Editor.bat
 
-Ou no site do GitHub: botão verde "Code" → "Download ZIP" → extrair a pasta.
-(Se baixar por ZIP, o Atualizar.bat só funciona depois de usar git clone.)
+Ou no site:
+https://github.com/tiringabrasil44-lgtm/editor-de-video
+Botão verde "Code" → "Download ZIP" → extrair.
+(Se baixar por ZIP, o Atualizar.bat só funciona bem depois de usar o git clone.)
 
 
 2) Quando a esposa ATUALIZAR o programa
 ---------------------------------------
 Ela sobe a novidade no GitHub.
-No seu notebook: abra a pasta do EditorDeVideo e dê dois cliques em:
+No seu notebook: abra a pasta editor-de-video e dê dois cliques em:
 
   Atualizar.bat
 
 Pronto — ele baixa a versão nova sozinho.
 Depois abra de novo com: Abrir Editor.bat
-
-
-3) Link do GitHub
------------------
-(será preenchido automaticamente após criar o repositório)

@@ -10,8 +10,8 @@ O que faz
 - Salvar o resultado em MP4
 
 GitHub (para o marido baixar / atualizar)
-- Link do projeto: (será preenchido após o primeiro push)
-- Primeira vez no notebook: veja o arquivo PARA-O-MARIDO.txt
+- Link: https://github.com/tiringabrasil44-lgtm/editor-de-video
+- Primeira vez no notebook: abra o arquivo PARA-O-MARIDO.txt
 - Depois de qualquer atualização: clique duas vezes em Atualizar.bat
 
 Como usar no seu PC

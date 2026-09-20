@@ -20,10 +20,9 @@ if errorlevel 1 (
 
 if not exist ".git" (
   echo Esta pasta ainda nao esta ligada ao GitHub.
-  echo No notebook, baixe assim na primeira vez:
-  echo   git clone COLOQUE_A_URL_AQUI
-  echo.
-  echo Ou peca o link atualizado no LEIA-ME.txt
+  echo No notebook, na primeira vez rode:
+  echo   git clone https://github.com/tiringabrasil44-lgtm/editor-de-video.git
+  echo Veja tambem o arquivo PARA-O-MARIDO.txt
   pause
   exit /b 1
 )
